@@ -5,8 +5,8 @@ You will be able to easily deploy Machine Networks and create Cyber Challenges !
 If you are interested in CyberSecurity, it is made for you to learn and practice !
 
 It relies on 2 different open-source projects:
-*  [CTFd](https://https://github.com/CTFd/CTFd/) (for the challenges platform, which also manages the network instances)
-*  [MI-LXC](https://https://github.com/flesueur/mi-lxc/) (for networks/machines generation)
+*  [CTFd](https://github.com/CTFd/CTFd/) (for the challenges platform, which also manages the network instances)
+*  [MI-LXC](https://github.com/flesueur/mi-lxc/) (for networks/machines generation)
 
 
 Additional features were added, mainly:
@@ -55,7 +55,7 @@ If you wish to be able to deploy and run machines for your challenges:
     You can access it at `localhost:4000`
     
 
-Challenges creation, and flag submission functions as in [CTFd](https://https://github.com/CTFd/CTFd/).
+Challenges creation, and flag submission functions as in [CTFd](https://github.com/CTFd/CTFd/).
 
 The current repository is provided with only one user, with credentials **admin:admin**
 (change it if needed).
@@ -69,7 +69,7 @@ You can add as many users (players) as you like.
 
 1. Create a folder in `deploy/networks` with the wanted name. For example, `deploy/networks/challenge01_network`
 
-    It has to follow [MI-LXC](https://https://github.com/flesueur/mi-lxc/) network structure.
+    It has to follow [MI-LXC](https://github.com/flesueur/mi-lxc/) network structure.
     
     Feel free to duplicate the provided folder **network_example** and change it.
     
@@ -128,4 +128,4 @@ Learn ! Be creative ! Have fun !
 
 ## Credits
 
-Thank you to the creators and contributors of [CTFd](https://https://github.com/CTFd/CTFd/) and [MI-LXC](https://https://github.com/flesueur/mi-lxc/) for these very useful projects.
+Thank you to the creators and contributors of [CTFd](https://github.com/CTFd/CTFd/) and [MI-LXC](https://github.com/flesueur/mi-lxc/) for these very useful projects.
