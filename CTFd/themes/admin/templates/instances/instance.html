@@ -1,0 +1,49 @@
+{% extends "admin/base.html" %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+<div id="user-info-modal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="modal-action text-center w-100">Manage Instance</h2>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="jumbotron">
+	<div class="container">
+		<h1 id="team-id" class="text-center p-0 m-0">{{ instance.network }}</h1>
+
+		<div class="pt-3">
+
+			<button id="creating" type="button" class="text-dark" data-toggle="tooltip" title="Create" data-id="{{ instance.id }}">
+				<i class="btn-fa fas fa-play fa-2x px-2" data-toggle="tooltip" data-placement="top" title="Create"></i>
+			</button>
+
+			<button id="deleting" type="button" class="text-dark" data-toggle="tooltip" title="Delete" data-id="{{ instance.id }}">
+				<i class="btn-fa fas fa-trash fa-2x px-2" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+			</button>
+
+			<a class="award-user text-dark">
+				<i class="btn-fa fas fa-refresh fa-2x px-2" data-toggle="tooltip" data-placement="top" title="Update"></i>
+			</a>
+
+		</div>
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block entrypoint %}
+	{{ Assets.js("assets/js/pages/instance.js", theme="admin") }}
+{% endblock %}

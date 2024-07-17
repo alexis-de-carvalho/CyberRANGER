@@ -1,0 +1,8 @@
+- name: Stop Network
+  hosts: localhost
+
+  tasks:
+  - name: Stop environment
+    command: sh stop.sh {{ ip }}
+
+

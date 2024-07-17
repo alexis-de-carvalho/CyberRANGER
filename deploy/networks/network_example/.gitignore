@@ -1,0 +1,12 @@
+config.tmp
+__pycache__
+.vagrant
+VBoxLinuxAdditions.run
+notes
+*.bak
+mkcert
+launch.sh
+files/target-firewall/prelude-manager.conf
+templates/groups/as-bgp-dynamips/bgprouter/bins/*
+vagrant/files/vpn.conf
+zzlocal/

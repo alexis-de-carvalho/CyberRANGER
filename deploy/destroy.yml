@@ -1,0 +1,9 @@
+- name: Destroy Network
+  hosts: localhost
+
+  tasks:
+  - name: Destroy VM
+    command: sh destroy.sh {{ network_name }}
+
+  - name: Destroy Instance
+    command: python3 destroy.py {{ instance_id }} {{ db_url }}

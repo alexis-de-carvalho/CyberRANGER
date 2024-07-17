@@ -1,0 +1,8 @@
+- name: Start Network
+  hosts: localhost
+
+  tasks:
+  - name: Start environment
+    command: sh start.sh {{ ip }}
+
+

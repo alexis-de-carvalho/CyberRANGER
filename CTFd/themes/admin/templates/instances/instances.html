@@ -1,0 +1,84 @@
+{% extends "admin/base.html" %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+	<div class="container">
+		<h1>Instances
+			<span class="create-instance" role="button" data-toggle="tooltip" title="Create Instance">
+				<a href="{{ url_for('admin.instances_new') }}" style="color: inherit;">
+					<i class="btn-fa fas fa-plus-circle"></i>
+				</a>
+			</span>
+		</h1>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 table-responsive">
+			<table id="instancesboard" class="table table-striped border">
+				<thead>
+					<tr>
+						<th class="sort-col text-center"><b>ID</b></th>
+						<th class="sort-col text-center"><b>Network</b></th>
+						<th class="sort-col text-center"><b>Value</b></th>
+						<th class="sort-col text-center px-0"><b>IP</b></th>
+						<th class="sort-col text-center px-0"><b>Status</b></th>
+						<th class="sort-col text-center px-0"><b>Challenge ID</b></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for instance in instances.items %}
+					<tr name="{{ instance.id }}" data-href="{{ url_for('admin.instances_detail', instance_id=instance.id) }}">
+
+						<td class="instance-id text-center" value="{{ instance.id }}">{{ instance.id }}</td>						
+
+						<td class="instance-network text-center" value="{{ instance.network }}">{{ instance.network }}</td>
+
+						<td class="instance-value text-center" value="{{ instance.value }}">{{ instance.value }}</td>
+
+						<td class="instance-ip text-center" value="{{ instance.ip }}">{{ instance.ip }}</td>
+
+						<td class="instance-status text-center" value="{{ instance.status }}">{{ instance.status }}</td>
+
+						
+						<td class="instance-challenge" value="{{ instance.challenge_id }}">
+							<a href="{{ url_for('admin.challenges_detail', challenge_id=1) }}">
+								{{ instance.challenge_id }}
+							</a>
+						</td>
+
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			{% if instances.pages > 1 %}
+			<div class="text-center">Page
+				<br>
+				{% if instances.page != 1 %}
+				<a href="{{ prev_page }}">&lt;&lt;&lt;</a>
+				{% endif %}
+				<select class="page-select">
+					{% for page in range(1, instances.pages + 1) %}
+					<option {% if instances.page == page %}selected{% endif %}>{{ page }}</option>
+					{% endfor %}
+				</select>
+				{% if instances.next_num %}
+				<a href="{{ next_page }}">&gt;&gt;&gt;</a>
+				{% endif %}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block entrypoint %}
+	{{ Assets.js("assets/js/pages/instances.js", theme="admin") }}
+{% endblock %}

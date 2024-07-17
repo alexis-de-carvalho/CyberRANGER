@@ -1,0 +1,19 @@
+{
+  "comment": "MACHINE AS",
+  "containers": {
+          "home":{"container":"home",
+            "interfaces":[
+              {"bridge":"cust", "ipv4":"100.120.0.3/24"}
+            ],
+            "gatewayv4":"100.120.0.1",
+            "templates":[{"template":"nodhcp", "domain":"machine.milxc", "ns":"100.120.1.2"},
+                        {"template":"updatecaroots"}]},
+          "hacker":{"container":"hacker",
+            "interfaces":[
+              {"bridge":"cust", "ipv4":"100.120.0.4/24"}
+            ],
+            "gatewayv4":"100.120.0.1",
+            "templates":[{"template":"mailclient", "domain":"machine.milxc", "mailname":"hacker", "password":"hacker"},
+                    {"template":"nodhcp", "domain":"machine.milxc", "ns":"100.120.1.2"}]}
+  }
+}

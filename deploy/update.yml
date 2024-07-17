@@ -1,0 +1,8 @@
+- name: Update Network
+  hosts: localhost
+
+  tasks:
+  - name: Update environment
+    command: sh update.sh {{ ip }} {{ network_name }}
+
+

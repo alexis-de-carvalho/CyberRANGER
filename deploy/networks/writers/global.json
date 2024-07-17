@@ -1,0 +1,62 @@
+{
+  "prefix-containers":"mi-",
+  "prefix-bridges":"mi-",
+  "nat-bridge":"lxcbr0",
+  "comment":"An interconnected network of different AS with internet services",
+  "masters": [
+    {
+    "backend":"lxc",
+    "template":"debian",
+    "parameters":{"release": "bullseye", "arch": "amd64"},
+    "family":"debian",
+    "name":"bullseye"
+  },
+    {
+    "backend":"lxc",
+    "template":"download",
+    "parameters":{"dist": "debian", "release": "buster", "arch": "amd64", "no-validate": "true"},
+    "family":"debian",
+    "name":"buster",
+    "status":"disabled"
+  },
+  {
+  "backend":"lxc",
+  "template":"download",
+  "parameters":{"dist": "debian", "release": "stretch", "arch": "amd64", "no-validate": "true"},
+  "name":"stretch",
+  "family":"debian",
+  "status":"disabled"
+},
+{
+"backend":"lxc",
+"template":"download",
+"parameters":{"dist": "alpine", "release": "3.14", "arch": "amd64", "no-validate": "true"},
+"name":"alpine",
+"family":"alpine",
+"status":"enabled"
+},
+{
+"backend":"dynamips",
+"rom":"templates/groups/as-bgp-dynamips/bgprouter/bins/c3640-js-m.124-3g.bin",
+"name":"cisco-3640",
+"family":"c3640",
+"status":"disabled"
+}],
+  "groups": {
+    "secret": {
+      "templates":[{"template":"as-bgp", "asn":"10", "asdev":"eth1", "neighbors4":"100.100.0.11 as 20",
+      "interfaces":[
+        {"bridge":"nat-bridge", "ipv4":"dhcp"},
+        {"bridge":"secret-net", "ipv4":"100.80.0.1/24"},
+        {"bridge":"secret-path", "ipv4":"100.100.0.10/24"}
+      ]
+      }]},
+    "pub": {
+      "templates":[{"template":"as-bgp", "asn":"20", "asdev":"eth1", "neighbors4":"100.100.0.10 as 10",
+      "interfaces":[
+          {"bridge":"pub-lan", "ipv4":"100.120.0.1/24"},
+	  {"bridge":"secret-path", "ipv4":"100.100.0.11/24"}
+      ]
+    }]}
+  }
+}

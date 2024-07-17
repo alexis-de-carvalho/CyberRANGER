@@ -1,0 +1,3 @@
+Hello there !
+Feel free to edit your own novel here !
+When ready, you can also commit your version with higher privileges...

@@ -1,0 +1,32 @@
+- name: Deployment
+  hosts: localhost
+  vars:
+    ova_path: ~/network.ova
+
+  tasks:
+
+  - name: Create VM for Network
+    ignore_errors: true
+    command: sh create.sh {{ network_name }} {{ ova_path }}
+
+  - name: Set MAC
+    ignore_errors: true
+    command: VBoxManage modifyvm {{ network_name }} --macaddress1 080027f44359
+
+  - name: Boot the VM Network
+    ignore_errors: true
+    command: VBoxManage startvm {{ network_name }} --type headless
+
+  - name: Check Network status
+    ansible.builtin.shell: "VBoxManage guestproperty get {{ network_name }} '/VirtualBox/GuestInfo/Net/0/V4/IP'"
+    register: ip_output
+    until: "'No value set' not in ip_output.stdout"
+    retries: 60
+    delay: 10
+
+  - name: Display IP
+    command: python3 send_ip.py {{ network_name }} {{ ip_output.stdout_lines[0].split(':')[1].strip() }} {{ instance_id }} {{ db_url }}
+
+  - name: Setup environment
+    command: sh setup.sh {{ ip_output.stdout_lines[0].split(':')[1].strip() }} {{ network_name }}
+

@@ -1,0 +1,11 @@
+{
+  "comment": "LAN AS",
+  "containers": {
+          "writer":{"container":"writer",
+            "interfaces":[
+              {"bridge":"lan", "ipv4":"100.120.0.4/24"}
+            ],
+            "gatewayv4":"100.120.0.1",
+	    "templates":[{"template":"nodhcp"}]}
+  }
+}
