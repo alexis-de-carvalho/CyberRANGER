@@ -1,5 +1,9 @@
 # CyberRANGER
 
+>> DISCLAIMER
+>> - This is a NON-COMMERCIAL project
+>> - It remains a training tool, still it is STRONGLY recommended to NOT RUN IT ON SENSITIVE ENVIRONMENTS
+
 This projet is a free, open-source, non-lucrative **CyberRange**.
 You will be able to easily deploy Machine Networks and create Cyber Challenges !
 If you are interested in CyberSecurity, it is made for you to learn and practice !
@@ -15,6 +19,8 @@ Additional features were added, mainly:
 
 
 ## Challenges
+
+![Challenges](images/challenges.png)
 
 There are currently 2 types of challenges:
 * *simple challenges* (only questions, and can involve files to download)
@@ -62,6 +68,10 @@ The current repository is provided with only one user, with credentials **admin:
 
 You can add as many users (players) as you like.
 
+![Scoreboard](images/scoreboard.png)
+
+![Stats](images/stats.png)
+
 
 ## Managing the Instances
 
@@ -85,10 +95,18 @@ You can add as many users (players) as you like.
 3. Finally, click on the newly created instance (in the table). Then press the play button to create the instance. Wait for creation (check terminal logging or wait to be redirected to the instances menu).
 
     Your instance is ready !
-    
+
+
+![Instances](images/instances.png)    
+
 
 >> Be careful, you cannot have more than one running instance per network. If you want to create 2 instances of the same network template, simply duplicate the corresponding folder under "deploy/machines"
 
+![Manage](images/manage.png)
+
+*To destroy an instance, simply click on the bin button.*
+
+>> If you shut down the machine hosting the platform and forget to delete the instances, simply click on the play button to launch the instances (after restarting the platform).
 
 ## Adding access
 
@@ -122,6 +140,8 @@ Once you have created (as admin) some challenges and launched network instances 
 From the user side, the menu **"Instances"** allows to check IP addresses of instances, so they can access machines if required by the challenge.
 
 If the status is on **RUNNING**, access is possible !
+
+![Play](images/play.png)
 
 Learn ! Be creative ! Have fun !
 
