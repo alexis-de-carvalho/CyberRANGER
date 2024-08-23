@@ -11,7 +11,7 @@ class ChallengeSearchForm(BaseForm):
         choices=[
             ("name", "Name"),
             ("id", "ID"),
-            ("category", "Category"),
+            ("category", "Exercise"),
             ("type", "Type"),
         ],
         default="name",
